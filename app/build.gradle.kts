@@ -1,7 +1,13 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("kotlin-kapt")
+    id("kotlin-kapt") plugins {
+alias(libs.plugins.google.gms.google.services) apply false
+alias(libs.plugins.google.firebase.crashlytics) apply false
+}plugins {
+alias(libs.plugins.google.gms.google.services)
+alias(libs.plugins.google.firebase.crashlytics)
+}
 }
 
 android {
@@ -86,4 +92,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-}
+}implementation(libs.firebase.crashlytics)
